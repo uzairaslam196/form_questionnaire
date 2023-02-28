@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="csrf-token" content={csrf_token_value()}>
+    <%= live_title_tag assigns[:page_title] || "FormQuestionnaireTesting", suffix: " · Phoenix Framework" %>
+    <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
+    <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
+  </head>
+  <body class="bg-gray-50 dark:bg-gray-800">
+    <FormQuestionnaireComponents.Navbar.navbar
+      class="fixed z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+      container_class="py-3 px-3 lg:px-5 lg:pl-3 flex justify-between items-center"
+    >
+      <:left>
+        <div class="flex justify-start items-center">
+          <.logo site_url="/" class="mr-14" />
+        </div>
+      </:left>
+    </FormQuestionnaireComponents.Navbar.navbar>
+
+    <div class="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900">
+      <div
+        id="main-content"
+        class="w-full h-full bg-gray-50 dark:bg-gray-900"
+      >
+      <main>
+        <%= @inner_content %>
+      </main>
+     </div>
+    </div>
+  </body>
+</html>
